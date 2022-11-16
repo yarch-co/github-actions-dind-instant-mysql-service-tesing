@@ -1,0 +1,29 @@
+name: GitHub Actions Demo
+
+on: push
+
+jobs:
+  testit:
+    runs-on: ubuntu-latest
+    container:
+      image: golang:1.18
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+    steps:
+      - uses: actions/checkout@v3
+
+#      - name: Set up Go
+#        uses: actions/setup-go@v3
+#        with:
+#          go-version: 1.18.3
+
+      - name: install ip command
+        run: apt update; apt install -y iproute2
+
+      - name: Test
+        run: |
+          export DB_HOST=$(ip route | awk '$0 ~ /default via/ { print $3 }')
+          #ls -l /var/run/docker.sock
+          #ip route
+          go test -v ./...
+        shell: bash
