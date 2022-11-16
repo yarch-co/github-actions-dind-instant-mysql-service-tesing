@@ -18,7 +18,7 @@ jobs:
 #          go-version: 1.18.3
 
       - name: install ip command
-        run: apt-install -y install iproute2
+        run: apt install -y install iproute2
 
       - name: Test
         run: |
