@@ -1,4 +1,4 @@
-# Example of testing go code with individual mysql containers using dockertest
+# Testing go code with individual mysql containers using dockertest
 
 Golang's test command builds the code under test into separate binaries for each package.
 Therefore, it is necessary to start a resource such as mysql for each binary to be built.
