@@ -22,7 +22,8 @@ jobs:
 
       - name: Test
         run: |
-          ls -l /var/run/docker.sock
-          ip route
-          #go test -v ./...
+          export DB_HOST=$(ip route | awk '$0 ~ /default via/ { print $3 }')
+          #ls -l /var/run/docker.sock
+          #ip route
+          go test -v ./...
         shell: bash
