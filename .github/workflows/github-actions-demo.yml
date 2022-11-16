@@ -22,6 +22,7 @@ jobs:
 
       - name: Test
         run: |
+          ls -l /var/run/docker.sock
           ip route
           #go test -v ./...
         shell: bash
