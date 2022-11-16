@@ -18,7 +18,6 @@ jobs:
       - name: install ip command
         run: apt install iproute2
 
-      - name: 
       - name: Test
         run: |
           ip route
