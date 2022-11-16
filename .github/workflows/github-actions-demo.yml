@@ -1,0 +1,26 @@
+name: GitHub Actions Demo
+
+jobs:
+  testit:
+    runs-on: ubuntu-latest
+    container:
+      image: golang:1.18
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+    steps:
+      - uses: actions/checkout@v3
+
+#      - name: Set up Go
+#        uses: actions/setup-go@v3
+#        with:
+#          go-version: 1.18.3
+
+      - name: install ip command
+        run: apt install iproute2
+
+      - name: 
+      - name: Test
+        run: |
+          ip route
+          #go test -v ./...
+        shell: bash
